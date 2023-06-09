@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snake Game</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+            background-color: #ccc;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+    <script>
+        // Game variables
+        var canvas, ctx;
+        var snakeSize, foodSize;
+        var snake, food;
+        var direction;
+        var score;
+
+        // Touch control variables
+        var touchStartX, touchStartY, touchEndX, touchEndY;
+
+        // Initialize the game
+        function init() {
+            canvas = document.getElementById("gameCanvas");
+            ctx = canvas.getContext("2d");
+            snakeSize = 20;
+            foodSize = 20;
+            snake = [{ x: 40, y: 40 }];
+            food = { x: 200, y: 200 };
+            direction = "right";
+            score = 0;
+
+            // Touch control event listeners
+            canvas.addEventListener("touchstart", handleTouchStart);
+            canvas.addEventListener("touchend", handleTouchEnd);
+
+            // Keyboard control event listener
+            document.addEventListener("keydown", handleKeyPress);
+
+            setInterval(gameLoop, 100);
+        }
+
+        // Update the game state
+        function gameLoop() {
+            drawCanvas();
+            moveSnake();
+            drawSnake();
+            drawFood();
+            drawScore();
+            checkCollision();
+        }
+
+        // Draw the canvas
+        function drawCanvas() {
+            ctx.fillStyle = "#ccc";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Move the snake
+        function moveSnake() {
+            var head = { x: snake[0].x, y: snake[0].y };
+
+            if (direction === "right") head.x += snakeSize;
+            else if (direction === "left") head.x -= snakeSize;
+            else if (direction === "up") head.y -= snakeSize;
+            else if (direction === "down") head.y += snakeSize;
+
+            snake.unshift(head);
+
+            if (head.x === food.x && head.y === food.y) {
+                score++;
+                generateFood();
+            } else {
+                snake.pop();
+            }
+        }
+
+        // Draw the snake
+        function drawSnake() {
+            ctx.fillStyle = "#000";
+            snake.forEach(function (segment) {
+                ctx.fillRect(segment.x, segment.y, snakeSize, snakeSize);
+            });
+        }
+
+        // Generate new food
+        function generateFood() {
+            var maxX = canvas.width - foodSize;
+            var maxY = canvas.height - foodSize;
+
+            food.x = Math.floor(Math.random() * maxX / snakeSize) * snakeSize;
+            food.y = Math.floor(Math.random() * maxY / snakeSize) * snakeSize;
+        }
+
+        // Draw the food
+        function drawFood() {
+            ctx.fillStyle = "#f00";
+            ctx.fillRect(food.x, food.y, foodSize, foodSize);
+        }
+
+        // Draw the score
+        function drawScore() {
+            ctx.fillStyle = "#000";
+            ctx.font = "20px Arial";
+            ctx.fillText("Score: " + score, 10, 30);
+        }
+
+        // Check for collision with walls or the snake's tail
+        function checkCollision() {
+            var head = snake[0];
+
+            if (
+                head.x < 0 ||
+                head.x >= canvas.width ||
+                head.y < 0 ||
+                head.y >= canvas.height
+            ) {
+                gameOver();
+            }
+
+            for (var i = 1; i < snake.length; i++) {
+                if (head.x === snake[i].x && head.y === snake[i].y) {
+                    gameOver();
+                }
+            }
+        }
+
+        // Game over
+        function gameOver() {
+            alert("Game over! Your score: " + score);
+            snake = [{ x: 40, y: 40 }];
+            direction = "right";
+            score = 0;
+        }
+
+        // Handle touchstart event
+        function handleTouchStart(event) {
+            touchStartX = event.touches[0].clientX;
+            touchStartY = event.touches[0].clientY;
+        }
+
+        // Handle touchend event
+        function handleTouchEnd(event) {
+            touchEndX = event.changedTouches[0].clientX;
+            touchEndY = event.changedTouches[0].clientY;
+            handleSwipe();
+        }
+
+        // Handle swipe gesture based on touch coordinates
+        function handleSwipe() {
+            var swipeThreshold = 20;
+            var deltaX = touchEndX - touchStartX;
+            var deltaY = touchEndY - touchStartY;
+
+            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                if (deltaX > swipeThreshold && direction !== "left") {
+                    direction = "right";
+                } else if (deltaX < -swipeThreshold && direction !== "right") {
+                    direction = "left";
+                }
+            } else {
+                if (deltaY > swipeThreshold && direction !== "up") {
+                    direction = "down";
+                } else if (deltaY < -swipeThreshold && direction !== "down") {
+                    direction = "up";
+                }
+            }
+        }
+
+        // Handle keyboard key press
+        function handleKeyPress(event) {
+            var key = event.keyCode;
+            var leftKey = 37;
+            var upKey = 38;
+            var rightKey = 39;
+            var downKey = 40;
+
+            if (key === leftKey && direction !== "right") {
+                direction = "left";
+            } else if (key === upKey && direction !== "down") {
+                direction = "up";
+            } else if (key === rightKey && direction !== "left") {
+                direction = "right";
+            } else if (key === downKey && direction !== "up") {
+                direction = "down";
+            }
+        }
+
+        // Start the game
+        init();
+    </script>
+</body>
+</html>
+
