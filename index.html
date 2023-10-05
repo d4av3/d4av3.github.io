@@ -1,55 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>D4ave Website</title>
+  <title>D4av3 Website</title>
   <!---->
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
+
   <script>
-    /*
-//Safe copy
-    document.addEventListener("DOMContentLoaded", function() {
-      var currentlyDisplayed = null;
-      document.querySelectorAll('.nav-link').forEach(function(link) {
-        link.addEventListener('click', function() {
-          document.querySelectorAll('.nav-link').forEach(function(link) {
-            link.classList.remove('selected');
-          });
-          link.classList.add('selected');
-        });
-      });
-//safe copy
-      */
-
-/*
-//////////// It half works
-document.addEventListener("DOMContentLoaded", function() {
-      var currentlyDisplayed = null;
-      document.querySelectorAll('.nav-link').forEach(function(link) {
-        link.addEventListener('click', function() {
-          document.querySelectorAll('.nav-link').forEach(function(link) {
-            link.classList.remove('selected');
-          });
-          link.classList.add('selected');
-            link.addEventListener('click', function() {
-            document.querySelectorAll('.nav-link').forEach(function(link) {
-              link.classList.remove('selected');
-                link.addEventListener('click', function() {
-                  document.querySelectorAll('.nav-link').forEach(function(link) {
-                    link.classList.remove('selected');
-                  });
-                  link.classList.add('selected');
-                });
-            });
-          });
-        });
-      });
-////////// It half works
-*/
-
 
 ///////////////It's gonna work right?
-document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
       var currentlyDisplayed = null;
       document.querySelectorAll('.nav-link').forEach(function(link) {
         link.addEventListener('click', function() {
@@ -166,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </head>
 <body>
   <header>
-    <h1>D4ave Website / D4ave Portfolio</h1>
+    <h1>D4ave Website / D4av3 Portfolio</h1>
   </header>
   <p></p>
   <nav>
@@ -202,28 +162,37 @@ document.addEventListener("DOMContentLoaded", function() {
     <section id="overview" style="display: none;">
       <h2>Overview</h2>
       <p>Welcome to my website! Here is where i'm gonna upload my projects</p>
+      <img src="images&videos/programar.gif" alt="Programar">
+      <video width="500px" height="300px" controls="controls">
+        <source src="images&videos/programing.mp4" type="video/mp4" />
+        Video can't be showed
+      </video>
     </section>
     <section id="projects" style="display: none;">
       <h2>Projects & functions</h2>
-      <p>Here are going to be all my projects</p>
+      <p></p><strong><a href="projects/index.html">Here</a></strong>
+      are going to be all my projects</p>
       <p>And all my functions</p>
-      <p><strong>(null/NaN/empty/""/ /)</strong></p>
-      <a href="projects/">All my projects</a>
     </section>
     <section id="about" style="display: none;">
       <h2>About me</h2>
-      <p>I am David Badal Beltran</p>
-      <p>I'm learning Information technology.</p>
+      <div id="columns">
+        <li>My name is David Badal Beltran</li>
+        <li>I'm a Web programmer</li>
+        <li>I have a Higher Degree in Web Applications</li>
+        <li>I </li>
+      </div>
     </section>
     <section id="contact" style="display: none;">
       <h2>Contact me</h2>
       <p>If you are interested in contact me, you can contact by email at random@mail.com or by phone at 555-555-5555.</p>
+      <p>Github: <a href="https://github.com/d4av3">https://github.com/d4av3</a> </p>
     </section>
   </main>
-  <p id="message">This is a sample website.</p>
   <footer>
     <hr />
     <p>Copyright &copy; David Badal</p>
+    
   </footer>
 </body>
 </html>

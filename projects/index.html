@@ -6,7 +6,8 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      var currentlyDisplayed = null;
+      var currentlyDisplayed = "projects";
+      document.getElementById("projects").style.display = "block";
       document.querySelectorAll('.nav-link').forEach(function(link) {
         link.addEventListener('click', function() {
           document.querySelectorAll('.nav-link').forEach(function(link) {
@@ -22,45 +23,9 @@
           currentlyDisplayed = null;
         } else {
           document.getElementById("language").style.display = "block";
-          /*
-          document.getElementById("menu1").style.display = "none";
-          document.getElementById("menu2").style.display = "none";
-          document.getElementById("projects").style.display = "none";
-          document.getElementById("functions").style.display = "none";
-          */
           currentlyDisplayed = "language";
         }
       });
-      /*
-      document.getElementById("menu1-link").addEventListener("click", function(event) {
-        event.preventDefault();
-        if (currentlyDisplayed === "menu1") {
-          document.getElementById("menu1").style.display = "none";
-          currentlyDisplayed = null;
-        } else {
-          document.getElementById("language").style.display = "none";
-          document.getElementById("menu1").style.display = "block";
-          document.getElementById("menu2").style.display = "none";
-          document.getElementById("projects").style.display = "none";
-          document.getElementById("functions").style.display = "none";
-          currentlyDisplayed = "menu1";
-        }
-      });
-      document.getElementById("menu2-link").addEventListener("click", function(event) {
-        event.preventDefault();
-        if (currentlyDisplayed === "menu2") {
-          document.getElementById("menu2").style.display = "none";
-          currentlyDisplayed = null;
-        } else {
-          document.getElementById("language").style.display = "none";
-          document.getElementById("menu1").style.display = "none";
-          document.getElementById("menu2").style.display = "block";
-          document.getElementById("projects").style.display = "none";
-          document.getElementById("functions").style.display = "none";
-          currentlyDisplayed = "menu2";
-        }
-      });
-      */
       document.getElementById("projects-link").addEventListener("click", function(event) {
         event.preventDefault();
         if (currentlyDisplayed === "projects") {
@@ -68,8 +33,8 @@
           currentlyDisplayed = null;
         } else {
           document.getElementById("language").style.display = "none";
-          document.getElementById("menu1").style.display = "none";
-          document.getElementById("menu2").style.display = "none";
+          /*document.getElementById("menu1").style.display = "none";
+          document.getElementById("menu2").style.display = "none";*/
           document.getElementById("projects").style.display = "block";
           document.getElementById("functions").style.display = "none";
           currentlyDisplayed = "projects";
@@ -82,8 +47,8 @@
           currentlyDisplayed = null;
         } else {
           document.getElementById("language").style.display = "none";
-          document.getElementById("menu1").style.display = "none";
-          document.getElementById("menu2").style.display = "none";
+          /*document.getElementById("menu1").style.display = "none";
+          document.getElementById("menu2").style.display = "none";*/
           document.getElementById("projects").style.display = "none";
           document.getElementById("functions").style.display = "block";
           currentlyDisplayed = "functions";
@@ -94,18 +59,18 @@
 </head>
 <body>
   <header>
-    <h1>D4ave Website / D4ave Portfolio</h1>
+    <h1>D4ave Website / D4av3 Portfolio</h1>
   </header>
   <p></p>
   <nav>
     <li><a href="#language" id="language-link" class="nav-link">Language</a></li>
     <ul>
-      <li><a href="/" id="home-link" class="nav-link" >Home</a></li>
+      <li><a href="../index.html" id="home-link" class="nav-link" >Home</a></li>
       <li>|</li>
       <!--<li><a href="#menu1" id="menu1-link" class="nav-link" >Menu1</a></li>
       <li><a href="#menu2" id="menu2-link" class="nav-link" >Menu2</a></li>
       <li>|</li>-->
-      <li><a href="#projects" id="projects-link" class="nav-link" >Projects</a></li>
+      <li><a href="#projects" id="projects-link" class="nav-link selected" >Projects</a></li>
       <li>|</li>
       <li><a href="#functions" id="functions-link" class="nav-link" >Functions</a></li>
     </ul>
@@ -127,25 +92,50 @@
       select box.
     </p>-->
   </section>
-  <section id="menu1" style="display: none;">
+  <!--<section id="menu1" style="display: none;">
     <h2>Menu1</h2>
     <p>Menu 1</p>
   </section>
   <section id="menu2" style="display: none;">
     <h2>Menu2</h2>
     <p>Menu 2</p>
-  </section>
+  </section>-->
   <section id="functions" style="display: none;">
     <h2>Functions</h2>  
     <p>This is where all the functions are going to be:</p>
     <br>
     <hr />
     <section id="functions" style="display: block;">
-      <h2>File upload:</h2>
+      
+      <p></p>
+      <form method="post" enctype="multipart/form-data">
+        <div>
+          <h2>File upload:</h2> <!--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file-->
+
+          <input type="file" id="upload" name="upload"/>
+          <p><a id="link" download >Download the file</a> <!--https://stackoverflow.com/questions/57953389/download-file-just-uploaded-with-html-input-file-->
+          <script>
+            const input = document.getElementById('upload');
+            const link = document.getElementById('link');
+            let objectURL;
+
+            input.addEventListener('change', function () {
+              if (objectURL) {
+                // revoke the old object url to avoid using more memory than needed
+                URL.revokeObjectURL(objectURL);  
+              }
+
+              const file = this.files[0];
+              objectURL = URL.createObjectURL(file);
+
+              link.download = file.name; // this name is used when the user downloads the file
+              link.href = objectURL;
+            });
+          </script>
+        </div>
+      </form>
       <p></p>
       <div id="file-display"></div>
-      <p></p>
-      <input type="file" id="fi le-input" />
       <hr />
     <!--/<div id="functions">/-->
       <h2>Password strength indicator:</h2>
@@ -191,7 +181,7 @@
           document.getElementById("password-strength").style.background = color;
         });
       </script>
-  <!--//-->
+    <!--//-->
     
       <div id="functions">
         <form>
@@ -201,7 +191,7 @@
               <label for="text-input">Enter text:</label>
               <input type="text" id="text-input">
               <button id="save-button">Save</button>
-              <button id="clear-button">Refresh"Clear"</button>
+              <!--<button id="clear-button">Refresh"Clear"</button>-->
               <button id="show-button">Show stored text</button>
             </form>
           <div id="stored-text"></div>
@@ -229,11 +219,13 @@
         });
         document.get
       </script>
+      <h2><a href="sign_in.html">Sign in</a></h2>
+      <hr/>
     </section>
   </section>
   <section id="projects" style="display: none;">
     <h2>Projects</h2>
-    <p>Here are going to be all my projects <strong>(null/NaN/empty/""/ /)</strong></p>
+    <p>Here are going to be all my projects</p>
     <section id="projects-list" style="display: block;">
       <h2>Snake Game (html)</h2>
       <a href="games/snake/">Image of the snake game (html)</a>
@@ -263,10 +255,6 @@
       <a href="games/Gorilla.bas/gorilla">Gorilla.bas (html)</a>
     </section>
   </section>
-  <main>
-
-  </main>
-  <p id="message">This is a sample website.</p>
   <footer>
     <hr />
     <p>Copyright &copy; David Badal</p>
