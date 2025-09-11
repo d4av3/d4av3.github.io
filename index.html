@@ -53,9 +53,11 @@
         event.preventDefault();
         if (currentlyDisplayed === "language") {
           document.getElementById("language").style.display = "none";
+          document.getElementById("language-link").className = "nav-link"
           currentlyDisplayed = null;
         } else {
           document.getElementById("language").style.display = "block";
+          document.getElementById("language-link").className = "nav-link selected"
           /*
           document.getElementById("overview").style.display = "none";
           document.getElementById("projects").style.display = "none";
@@ -167,6 +169,7 @@
         <source src="images&videos/programing.mp4" type="video/mp4" />
         Video can't be showed
       </video>
+
     </section>
     <section id="projects" style="display: none;">
       <h2>Projects & functions</h2>
