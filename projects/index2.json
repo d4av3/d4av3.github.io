@@ -1,0 +1,14 @@
+[
+   {
+    "group": "",
+    "projects": ["tmp"]
+  },
+  {
+    "group": "games",
+    "projects": ["ahorcado", "minegraft", "chess"]
+  },
+  {
+    "group": "games/arcade",
+    "projects": ["pacman", "snake", "ping-pong"]
+  }
+]

@@ -1,0 +1,427 @@
+/* =========================================================
+   Universal Project Page Stylesheet
+   Matches the main portfolio's dark "terminal" design system.
+   Drop this file in any projects/<name>/ folder alongside an
+   index.html that links to ../../  for the RETURN button.
+   ========================================================= */
+
+:root {
+  /* --- Core palette (do not rename — shared across all project pages) --- */
+  --bg: #0d1117;
+  --bg2: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --dim: #8b949e;
+  --accent: #58a6ff;
+
+  /* --- Supplementary accent for status indicators (GitHub-dark adjacent) --- */
+  --success: #3fb950;
+
+  /* --- Type --- */
+  --mono: 'JetBrains Mono', 'Courier New', monospace;
+  --sans: 'Syne', sans-serif;
+
+  /* --- Layout --- */
+  --radius: 6px;
+  --max-width: 860px;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Page layout ---------- */
+.page-wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 100px 24px 80px;
+}
+
+.section {
+  margin-bottom: 64px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* ---------- Return button ---------- */
+.return-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 9px 16px 9px 14px;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.return-button::before {
+  content: "←";
+  font-size: 0.95em;
+}
+
+.return-button:hover,
+.return-button:focus-visible {
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent) inset, 0 0 18px -6px var(--accent);
+  text-decoration: none;
+}
+
+.return-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Typography ---------- */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+  flex-shrink: 0;
+}
+
+h1 {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+p {
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.subtitle {
+  font-family: var(--sans);
+  color: var(--dim);
+  font-size: 1.05rem;
+  max-width: 540px;
+}
+
+.dim-text {
+  color: var(--dim);
+}
+
+code,
+.inline-code {
+  font-family: var(--mono);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.88em;
+  color: var(--accent);
+}
+
+/* ---------- Terminal window component ---------- */
+.terminal {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 56px;
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.terminal-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.terminal-dot:nth-child(1) { background: #ff5f56; }
+.terminal-dot:nth-child(2) { background: #ffbd2e; }
+.terminal-dot:nth-child(3) { background: #27c93f; }
+
+.terminal-title {
+  margin-left: 8px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--dim);
+}
+
+.terminal-body {
+  padding: 26px 28px 30px;
+}
+
+.terminal-line {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  margin-top: 18px;
+  color: var(--text);
+}
+
+.terminal-line .prompt {
+  color: var(--success);
+  margin-right: 8px;
+}
+
+.terminal-output {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--dim);
+  margin-top: 10px;
+  line-height: 1.8;
+}
+
+/* ---------- Architecture / diagram blocks ---------- */
+.diagram {
+  position: relative;
+  margin: 28px 0 8px;
+  padding: 28px 22px 22px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.012);
+}
+
+.diagram-label {
+  position: absolute;
+  top: -11px;
+  left: 18px;
+  background: var(--bg);
+  padding: 0 8px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.lxc-row {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.lxc-card {
+  flex: 1 1 220px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 18px 20px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.lxc-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.lxc-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.lxc-card p {
+  font-size: 0.9rem;
+  color: var(--dim);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--success);
+  border: 1px solid var(--success);
+  border-radius: 20px;
+  padding: 3px 9px;
+}
+
+.status-pill::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 6px var(--success);
+}
+
+.flow-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  text-align: center;
+}
+
+.flow-arrow .line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ---------- Callout box ---------- */
+.callout {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+}
+
+.callout .icon {
+  font-family: var(--mono);
+  font-size: 1.3rem;
+  line-height: 1.4;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  margin-top: 40px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--dim);
+  text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .page-wrap {
+    padding: 76px 18px 60px;
+  }
+
+  .return-button {
+    top: 12px;
+    left: 12px;
+    padding: 8px 13px 8px 11px;
+    font-size: 0.7rem;
+  }
+
+  .terminal-body {
+    padding: 20px 18px 24px;
+  }
+
+  .lxc-row {
+    flex-direction: column;
+  }
+
+  .callout {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloudflare Tunnel — Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/projects.css">
+</head>
+<body>
+
+  <a href="/#projects" class="return-button">RETURN</a>
+
+  <main class="page-wrap">
+    
+    <div style="margin-bottom: 20px;">
+      <a href="../proxmox-homelab/index.html" style="color: var(--dim); font-family: var(--mono); font-size: 13px; text-decoration: none;">← Back to Proxmox Architecture</a>
+    </div>
+
+    <section class="terminal">
+      <div class="terminal-bar">
+        <span class="terminal-dot"></span>
+        <span class="terminal-dot"></span>
+        <span class="terminal-dot"></span>
+        <span class="terminal-title">root@cloudflared:~#</span>
+      </div>
+      <div class="terminal-body">
+        <p class="eyebrow">Project / Networking</p>
+        <h1>Cloudflare Tunnel LXC</h1>
+        <p class="subtitle">A dedicated container acting as a secure bridge between my internal network and the public internet.</p>
+
+        <div class="terminal-line"><span class="prompt">$</span> systemctl status cloudflared</div>
+        <div class="terminal-output" style="color: var(--green);">
+          ● cloudflared.service - Cloudflare Tunnel<br>
+          &nbsp;&nbsp;&nbsp;Active: active (running)<br>
+          &nbsp;&nbsp;&nbsp;Connection: INF Registered tunnel connection
+        </div>
+        <div class="terminal-line terminal-line--active"><span class="prompt">$</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">The Concept</p>
+      <h2>Zero Inbound Ports</h2>
+      <p>Exposing a home server traditionally requires opening ports on a router, creating DDNS rules, and constantly monitoring firewall logs. I wanted to bypass that entirely.</p>
+      <p>This container runs the <code>cloudflared</code> daemon. Instead of waiting for incoming traffic, it reaches <em>out</em> to Cloudflare's global edge network and establishes an encrypted tunnel. When a user requests my portfolio, Cloudflare routes the traffic down this existing tunnel directly to this LXC, which then forwards it to the Web Server LXC.</p>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Security</p>
+      <h2>Invisible to the Internet</h2>
+      <p>Because there are no open ports, scanners and bots crawling the internet cannot find my home IP address. All traffic is forced through Cloudflare's WAF (Web Application Firewall) before it ever touches my hardware.</p>
+      <div class="tag-list">
+        <span class="tag">Zero Trust</span>
+        <span class="tag">WAF</span>
+        <span class="tag">DDoS Protection</span>
+        <span class="tag">DNS Routing</span>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

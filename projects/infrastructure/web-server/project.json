@@ -1,0 +1,8 @@
+{
+  "name": "Portfolio Web Server",
+  "icon": "🌐",
+  "image": "",
+  "desc": "An isolated, lightweight LXC running a web stack exclusively to serve this SPA portfolio.",
+  "tags": ["Web Server", "Nginx", "PHP", "LXC"],
+  "link": "index.html"
+}

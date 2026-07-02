@@ -1,201 +1,316 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>D4av3 Website</title>
-  <!---->
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-
-
-  <script>
-
-///////////////It's gonna work right?
-    document.addEventListener("DOMContentLoaded", function() {
-      var currentlyDisplayed = null;
-      document.querySelectorAll('.nav-link').forEach(function(link) {
-        link.addEventListener('click', function() {
-          document.querySelectorAll('.nav-link').forEach(function(link) {
-            link.classList.remove('selected');
-          });
-          link.classList.add('selected');
-            link.addEventListener('click', function() {
-            document.querySelectorAll('.nav-link').forEach(function(link) {
-              link.classList.remove('selected');
-                link.addEventListener('click', function() {
-                  document.querySelectorAll('.nav-link').forEach(function(link) {
-                    link.classList.remove('selected');
-                  });
-                  link.classList.add('selected');
-                    link.addEventListener('click', function() {
-                    document.querySelectorAll('.nav-link').forEach(function(link) {
-                      link.classList.remove('selected');
-                        link.addEventListener('click', function() {
-                          document.querySelectorAll('.nav-link').forEach(function(link) {
-                            link.classList.remove('selected');
-                              link.addEventListener('click', function() {
-                                document.querySelectorAll('.nav-link').forEach(function(link) {
-                                  link.classList.remove('selected');
-                                });
-                                //link.classList.add('selected');
-                              });
-                          });
-                        });
-                    });
-                  });
-              });
-            });
-          });
-        });
-      });
-///////////////It's gonna work right?
-
-
-      document.getElementById("language-link").addEventListener("click", function(event) {
-        event.preventDefault();
-        if (currentlyDisplayed === "language") {
-          document.getElementById("language").style.display = "none";
-          document.getElementById("language-link").className = "nav-link"
-          currentlyDisplayed = null;
-        } else {
-          document.getElementById("language").style.display = "block";
-          document.getElementById("language-link").className = "nav-link selected"
-          /*
-          document.getElementById("overview").style.display = "none";
-          document.getElementById("projects").style.display = "none";
-          document.getElementById("about").style.display = "none";
-          document.getElementById("contact").style.display = "none";
-          */
-          currentlyDisplayed = "language";
-        }
-      });
-      document.getElementById("overview-link").addEventListener("click", function(event) {
-        event.preventDefault();
-        if (currentlyDisplayed === "overview") {
-          document.getElementById("overview").style.display = "none";
-          currentlyDisplayed = null;
-        } else {
-          document.getElementById("language").style.display = "none";
-          document.getElementById("overview").style.display = "block";
-          document.getElementById("projects").style.display = "none";
-          document.getElementById("about").style.display = "none";
-          document.getElementById("contact").style.display = "none";
-          currentlyDisplayed = "overview";
-        }
-      });
-      document.getElementById("projects-link").addEventListener("click", function(event) {
-        event.preventDefault();
-        if (currentlyDisplayed === "projects") {
-          document.getElementById("projects").style.display = "none";
-          currentlyDisplayed = null;
-        } else {
-          document.getElementById("language").style.display = "none";
-          document.getElementById("overview").style.display = "none";
-          document.getElementById("projects").style.display = "block";
-          document.getElementById("about").style.display = "none";
-          document.getElementById("contact").style.display = "none";
-          currentlyDisplayed = "projects";
-        }
-      });
-      document.getElementById("about-link").addEventListener("click", function(event) {
-        event.preventDefault();
-        if (currentlyDisplayed === "about") {
-          document.getElementById("about").style.display = "none";
-          currentlyDisplayed = null;
-        } else {
-          document.getElementById("language").style.display = "none";
-          document.getElementById("overview").style.display = "none";
-          document.getElementById("projects").style.display = "none";
-          document.getElementById("about").style.display = "block";
-          document.getElementById("contact").style.display = "none";
-          currentlyDisplayed = "about";
-        }
-      });
-      document.getElementById("contact-link").addEventListener("click", function(event) {
-        event.preventDefault();
-        if (currentlyDisplayed === "contact") {
-          document.getElementById("contact").style.display = "none";
-          currentlyDisplayed = null;
-        } else {
-          document.getElementById("language").style.display = "none";
-          document.getElementById("overview").style.display = "none";
-          document.getElementById("projects").style.display = "none";
-          document.getElementById("about").style.display = "none";
-          document.getElementById("contact").style.display = "block";
-          currentlyDisplayed = "contact";
-        }
-      });
-    });
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D4av3 | ASIR Student &amp; Sysadmin</title>
+  <link rel="stylesheet" href="/css/main-style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>D4ave Website / D4av3 Portfolio</h1>
-  </header>
-  <p></p>
-  <nav>
-    <li><a href="#language" id="language-link" class="nav-link">Language</a></li>
-    <ul>
-      <li><a href="#overview" id="overview-link" class="nav-link" >Overview</a></li>
-      <li>|</li>
-      <li><a href="#projects" id="projects-link" class="nav-link" >Projects & functions</a></li>
-      <li>|</li>
-      <li><a href="#about" id="about-link" class="nav-link" >About me</a></li>
-      <li>|</li>
-      <li><a href="#contact" id="contact-link" class="nav-link" >Contact me</a></li>
-    </ul>
-  </nav>
-  <main>
-    <section id="language" style="display: none;">
-      <div id="google_translate_element"></div>
-      <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement(
-                {pageLanguage: 'en'},
-                'google_translate_element'
-            );
-        }
-      </script>
-      <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-      <!--<p>
-        You can translate the content of this
-        page by selecting a language in the
-        select box.
-      </p>-->
-    </section>
-    <section id="overview" style="display: none;">
-      <h2>Overview</h2>
-      <p>Welcome to my website! Here is where i'm gonna upload my projects</p>
-      <img src="images&videos/programar.gif" alt="Programar">
-      <video width="500px" height="300px" controls="controls">
-        <source src="images&videos/programing.mp4" type="video/mp4" />
-        Video can't be showed
-      </video>
 
-    </section>
-    <section id="projects" style="display: none;">
-      <h2>Projects & functions</h2>
-      <p></p><strong><a href="projects/index.html">Here</a></strong>
-      are going to be all my projects</p>
-      <p>And all my functions</p>
-    </section>
-    <section id="about" style="display: none;">
-      <h2>About me</h2>
-      <div id="columns">
-        <li>My name is David Badal Beltran</li>
-        <li>I'm a Web programmer</li>
-        <li>I have a Higher Degree in Web Applications</li>
-        <li>I </li>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo"><span class="lb">[</span>D4av3<span class="lb">]</span></div>
+      <p class="tagline">ASIR · 2nd Year</p>
+      <div class="status-badge"><span class="sdot"></span>Open to work</div>
+    </div>
+    <nav class="nav">
+      <a class="nav-link active" data-section="home">   <span class="ni">~</span>Home</a>
+      <a class="nav-link"        data-section="about">  <span class="ni">$</span>About</a>
+      <a class="nav-link"        data-section="skills"> <span class="ni">#</span>Skills</a>
+      <a class="nav-link"        data-section="scripts"><span class="ni">&gt;</span>Scripts</a>
+      <a class="nav-link"        data-section="projects"><span class="ni">@</span>Projects</a>
+      <a class="nav-link"        data-section="blog">   <span class="ni">*</span>Blog</a>
+      <a class="nav-link"        data-section="contact"><span class="ni">!</span>Contact</a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="https://github.com/d4av3" target="_blank" class="social-link">GitHub</a>
+      <a class="social-link nav-link" data-section="contact" style="cursor:pointer">Email</a>
+    </div>
+  </aside>
+
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <main class="main-content">
+
+    <!-- HOME -->
+    <section id="home" class="section active">
+      <div class="hero">
+        <div class="hero-text">
+          <p class="hero-pre"># Hello, world. I'm</p>
+          <h1 class="hero-name">David Badal<br><span class="accent">Beltrán</span></h1>
+          <p class="hero-desc">
+            Second-year <strong>ASIR student</strong> — Systems &amp; Network Administration.
+            I automate, configure, and document everything.
+          </p>
+          <div class="hero-cta">
+            <a href="cv/cv-david-badal.pdf" class="btn btn-primary" download>⬇ Download CV</a>
+            <a class="btn btn-outline nav-trigger" data-section="contact">Hire me</a><p></p>
+            <div></div>
+            <a href="#projects" class="btn btn-primary">My Projects</a>
+          </div>
+        </div>
+
+        <div class="terminals-wrap">
+          <p class="terminals-hint">Click any panel to expand · auto-cycles every 3s</p>
+          <div class="terminals" id="terminals">
+
+            <div class="term-panel" data-index="0">
+              <div class="term-bar">
+                <div class="term-dots"><span class="td red"></span><span class="td yel"></span><span class="td grn"></span></div>
+                <span class="term-title">whoami</span>
+                <span class="term-chevron">▾</span>
+              </div>
+              <div class="term-body">
+                <div class="term-prompt"><span class="tp">david@asir:~$</span> <span class="tc">whoami</span></div>
+                <div class="term-output" id="tout-0">
+                  <div class="to"><span class="tk">name    </span><span class="tv">David Badal Beltrán</span></div>
+                  <div class="to"><span class="tk">role    </span><span class="tv">ASIR Student · Web Dev</span></div>
+                  <div class="to"><span class="tk">year    </span><span class="tv">2nd year (2024–2025)</span></div>
+                  <div class="to"><span class="tk">location</span><span class="tv">Spain 🇪🇸</span></div>
+                  <div class="to"><span class="tk">github  </span><span class="tv"><a href="https://github.com/d4av3-code" target="_blank">github.com/d4av3-code</a></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="term-panel" data-index="1">
+              <div class="term-bar">
+                <div class="term-dots"><span class="td red"></span><span class="td yel"></span><span class="td grn"></span></div>
+                <span class="term-title">cat skills.txt</span>
+                <span class="term-chevron">▾</span>
+              </div>
+              <div class="term-body">
+                <div class="term-prompt"><span class="tp">david@asir:~$</span> <span class="tc">cat skills.txt</span></div>
+                <div class="term-output" id="tout-1">
+                  <div class="to"><span class="tk2">[sys] </span>Linux · Windows Server · Active Directory</div>
+                  <div class="to"><span class="tk2">[net] </span>TCP/IP · VLANs · DNS · DHCP · Wireshark</div>
+                  <div class="to"><span class="tk2">[code]</span>Bash · PowerShell · Python · HTML/CSS/JS</div>
+                  <div class="to"><span class="tk2">[srv] </span>Apache · Nginx · MySQL · VirtualBox</div>
+                  <div class="to"><span class="tk2">[vcs] </span>Git · GitHub</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="term-panel" data-index="2">
+              <div class="term-bar">
+                <div class="term-dots"><span class="td red"></span><span class="td yel"></span><span class="td grn"></span></div>
+                <span class="term-title">uptime --education</span>
+                <span class="term-chevron">▾</span>
+              </div>
+              <div class="term-body">
+                <div class="term-prompt"><span class="tp">david@asir:~$</span> <span class="tc">uptime --education</span></div>
+                <div class="term-output" id="tout-2">
+                  <div class="to"><span class="tg">●</span> ASIR 2nd Year <span class="td2">2024 → now</span></div>
+                  <div class="to tindent">OS admin, networking, scripting, DBs, security</div>
+                  <div class="to"><span class="tg">✓</span> ASIR 1st Year <span class="td2">2023 → 2024</span></div>
+                  <div class="to tindent">Hardware, Linux basics, bash, basic networking</div>
+                  <div class="to"><span class="tg">✓</span> DAW (Web Dev) <span class="td2">prev. experience</span></div>
+                  <div class="to tindent">HTML, CSS, JS, PHP — portfolio &amp; games</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="term-panel" data-index="3">
+              <div class="term-bar">
+                <div class="term-dots"><span class="td red"></span><span class="td yel"></span><span class="td grn"></span></div>
+                <span class="term-title">echo $STATUS</span>
+                <span class="term-chevron">▾</span>
+              </div>
+              <div class="term-body">
+                <div class="term-prompt"><span class="tp">david@asir:~$</span> <span class="tc">echo $STATUS</span></div>
+                <div class="term-output" id="tout-3">
+                  <div class="to tg">🟢 Open to internships &amp; junior positions</div>
+                  <div class="to"><span class="tk">availability</span><span class="tv">part-time / FCT practices</span></div>
+                  <div class="to"><span class="tk">preference  </span><span class="tv">sysadmin · networks · devops</span></div>
+                  <div class="to"><span class="tk">cv          </span><span class="tv"><a href="cv/cv-david-badal.pdf" download>download PDF ↓</a></span></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </section>
-    <section id="contact" style="display: none;">
-      <h2>Contact me</h2>
-      <p>If you are interested in contact me, you can contact by email at random@mail.com or by phone at 555-555-5555.</p>
-      <p>Github: <a href="https://github.com/d4av3">https://github.com/d4av3</a> </p>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="section-header">
+        <h2 class="section-title"><span class="accent">$</span> cat about.txt</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Who am I?</h3>
+          <p>I'm David, a second-year ASIR student (Administración de Sistemas Informáticos en Red). Passionate about Linux, networking, automation and web development.</p>
+          <p>I enjoy writing scripts that solve real problems and setting up servers from scratch. Every script on this site is something I actually wrote and used.</p>
+        </div>
+        <div class="about-card">
+          <h3>Education</h3>
+          <div class="timeline">
+            <div class="tl-item">
+              <span class="tl-year">2024–Now</span>
+              <div><strong>ASIR – 2nd Year</strong><p>Linux, Windows Server, networking, scripting, databases, security.</p></div>
+            </div>
+            <div class="tl-item">
+              <span class="tl-year">2023–2024</span>
+              <div><strong>ASIR – 1st Year</strong><p>OS installation, hardware, bash scripting, basic networking.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="about-card">
+          <h3>Currently learning</h3>
+          <ul class="checklist">
+            <li class="done">Linux server administration</li>
+            <li class="done">Windows Server &amp; Active Directory</li>
+            <li class="done">Bash &amp; PowerShell scripting</li>
+            <li class="done">Networking (TCP/IP, VLANs, routing)</li>
+            <li class="wip">Docker &amp; virtualisation</li>
+            <li class="wip">Cloud basics (AWS/Azure)</li>
+          </ul>
+        </div>
+        <div class="about-card">
+          <h3>Languages</h3>
+          <div class="lang-list">
+            <div class="lang-item"><span>Spanish</span><span class="ll native">Native</span></div>
+            <div class="lang-item"><span>English</span><span class="ll b2">B2</span></div>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="section-header">
+        <h2 class="section-title"><span class="accent">#</span> skills --list</h2>
+        <p class="section-sub">Click a coding language tag to jump to Scripts filtered by that language.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Operating Systems</h3>
+          <div class="skill-tags">
+            <span class="tag">Linux (Debian/Ubuntu)</span>
+            <span class="tag">Windows Server</span>
+            <span class="tag">CentOS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Scripting &amp; Dev <span class="click-hint">↓ click to filter</span></h3>
+          <div class="skill-tags">
+            <span class="tag tag-lang" data-lang="bash">Bash</span>
+            <span class="tag tag-lang" data-lang="powershell">PowerShell</span>
+            <span class="tag tag-lang" data-lang="python">Python</span>
+            <span class="tag tag-lang" data-lang="js">JavaScript</span>
+            <span class="tag tag-lang" data-lang="html">HTML/CSS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Networking</h3>
+          <div class="skill-tags">
+            <span class="tag">TCP/IP</span>
+            <span class="tag">DNS / DHCP</span>
+            <span class="tag">VLANs</span>
+            <span class="tag">Cisco (basic)</span>
+            <span class="tag">Wireshark</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Services &amp; Tools</h3>
+          <div class="skill-tags">
+            <span class="tag">Apache / Nginx</span>
+            <span class="tag">Active Directory</span>
+            <span class="tag">Git / GitHub</span>
+            <span class="tag">VirtualBox</span>
+            <span class="tag">MySQL</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCRIPTS -->
+    <section id="scripts" class="section">
+      <div class="section-header">
+        <h2 class="section-title"><span class="accent">&gt;</span> ls ./scripts/</h2>
+        <p class="section-sub">Click a card to expand and read the code.</p>
+      </div>
+      <div class="filter-bar">
+        <span class="filter-label">filter:</span>
+        <button class="filter-btn active" data-filter="all">all</button>
+        <button class="filter-btn" data-filter="bash">bash</button>
+        <button class="filter-btn" data-filter="powershell">powershell</button>
+        <button class="filter-btn" data-filter="python">python</button>
+        <button class="filter-btn" data-filter="js">javascript</button>
+        <button class="filter-btn" data-filter="html">html/css</button>
+        <button class="filter-btn" data-filter="favorite">favorite</button>
+      </div>
+      <div class="scripts-list" id="scripts-list">
+        <div class="loading-msg">Loading scripts…</div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="section-header">
+        <h2 class="section-title"><span class="accent">@</span> ls ./projects/</h2>
+        <p class="section-sub">Mini-projects and experiments.</p>
+      </div>
+      <div class="projects-grid" id="projects-grid">
+        <div class="loading-msg">Loading projects…</div>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" class="section">
+      <div class="section-header">
+        <h2 class="section-title"><span class="accent">*</span> ls ./blog/</h2>
+        <p class="section-sub">Notes, guides and things I learn — mostly for other ASIR students.</p>
+      </div>
+      <div class="blog-grid" id="blog-grid">
+        <div class="loading-msg">Loading posts…</div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="section-header">
+        <h2 class="section-title"><span class="accent">!</span> contact --help</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Let's talk</h3>
+          <p>Looking for internships, FCT practices, or part-time sysadmin/junior work. Don't hesitate to reach out.</p>
+          <ul class="contact-list">
+            <li><span class="cl">Email</span><a href="mailto:badalbeltrandavid@gmail.com">badalbeltrandavid@gmail.com</a></li>
+            <li><span class="cl">GitHub</span><a href="https://github.com/d4av3" target="_blank">github.com/d4av3</a></li>
+            <li><span class="cl">Location</span><span>Spain 🇪🇸</span></li>
+          </ul>
+          <a href="cv/cv-david-badal.pdf" class="btn btn-primary" download>⬇ Download CV</a>
+        </div>
+        <div class="contact-form-wrap">
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="c-name">Name</label>
+              <input type="text" id="c-name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="c-email">Email</label>
+              <input type="email" id="c-email" placeholder="you@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="c-msg">Message</label>
+              <textarea id="c-msg" rows="5" placeholder="Hi David…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send message</button>
+            <p id="form-feedback" class="form-feedback"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
   </main>
-  <footer>
-    <hr />
-    <p>Copyright &copy; David Badal</p>
-    
-  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

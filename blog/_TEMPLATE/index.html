@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>_TEMPLATE The Post Title — D4av3</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Post page uses the same dark theme but single-column reading layout */
+    body { display: block; }
+
+    .post-topbar {
+      position: sticky;
+      top: 0;
+      background: rgba(13,17,23,.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 50;
+    }
+    .post-topbar a {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .post-topbar a:hover { text-decoration: underline; }
+    .post-topbar-sep { color: var(--border); }
+    .post-topbar-title {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--dim);
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .post-wrap {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 48px 24px 100px;
+    }
+
+    .post-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; }
+    .post-date { font-family: var(--mono); font-size: 12px; color: var(--dim); }
+    .post-tag  {
+      font-family: var(--mono); font-size: 11px; color: var(--accent);
+      background: rgba(88,166,255,.1); border: 1px solid rgba(88,166,255,.2);
+      padding: 1px 8px; border-radius: 20px;
+    }
+
+    .post-title {
+      font-size: 34px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 36px;
+    }
+
+    .post-body h2 {
+      font-family: var(--mono);
+      font-size: 16px;
+      color: var(--accent);
+      margin: 36px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .post-body h3 { font-size: 15px; color: #fff; margin: 24px 0 8px; font-family: var(--mono); }
+    .post-body p  { color: var(--dim); font-size: 15px; margin-bottom: 16px; line-height: 1.75; font-family: var(--mono); }
+    .post-body ul, .post-body ol { color: var(--dim); font-size: 15px; padding-left: 20px; margin-bottom: 16px; font-family: var(--mono); }
+    .post-body li { margin-bottom: 6px; line-height: 1.7; }
+    .post-body strong { color: var(--text); }
+    .post-body a { color: var(--accent); }
+    .post-body hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+    /* Inline code */
+    .post-body p code,
+    .post-body li code {
+      font-family: var(--mono);
+      background: var(--bg3);
+      color: var(--green);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+
+    /* Code blocks */
+    .post-body pre {
+      background: #010409;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      overflow-x: auto;
+      margin: 20px 0;
+      position: relative;
+    }
+    .post-body pre code {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.75;
+      background: none;
+      padding: 0;
+    }
+
+    /* Optional: label for code language */
+    .code-label {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 4px 4px 0 0;
+      margin-bottom: -1px;
+    }
+
+    /* Tip / note box */
+    .post-note {
+      background: rgba(88,166,255,.08);
+      border: 1px solid rgba(88,166,255,.25);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--text);
+    }
+    .post-note.warn {
+      background: rgba(210,153,34,.08);
+      border-color: rgba(210,153,34,.25);
+      border-left-color: var(--yellow);
+    }
+    .post-note.danger {
+      background: rgba(248,81,73,.08);
+      border-color: rgba(248,81,73,.25);
+      border-left-color: var(--red);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR — back link + post title -->
+  <div class="post-topbar">
+    <a href="../../index.html">← d4av3.github.io</a>
+    <span class="post-topbar-sep">›</span>
+    <a href="../../index.html#blog">Blog</a>
+    <span class="post-topbar-sep">›</span>
+    <span class="post-topbar-title">_TEMPLATE The Post Title</span>
+  </div>
+
+  <div class="post-wrap">
+
+    <!-- Metadata -->
+    <div class="post-meta">
+      <span class="post-date">2025-01-01</span>         <!-- change date -->
+      <span class="post-tag">Linux</span>               <!-- change tag -->
+    </div>
+
+    <!-- Title -->
+    <h1 class="post-title">_TEMPLATE The Post Title Here</h1>   <!-- change title -->
+
+    <!-- Content -->
+    <div class="post-body">
+
+      <p>
+        Introduction paragraph. What is this post about? Why did you write it?
+        Who is it for? Keep it short — 2-3 sentences.
+      </p>
+
+      <!-- ─── PREREQUISITES ─── -->
+      <h2># Prerequisites</h2>
+      <ul>
+        <li>A Debian 12 server (VM or real hardware)</li>
+        <li>Root or <code>sudo</code> access</li>
+        <li>Basic command-line knowledge</li>
+      </ul>
+
+      <!-- ─── STEP 1 ─── -->
+      <h2># Step 1 — Install packages</h2>
+
+      <p>First, update your package list and install what you need:</p>
+
+      <span class="code-label">bash</span>
+      <pre><code>sudo apt update && sudo apt upgrade -y
+sudo apt install apache2 mysql-server php php-mysql -y</code></pre>
+
+      <p>Explanation of what this does and any gotchas to watch out for.</p>
+
+      <!-- Note box example -->
+      <div class="post-note">
+        💡 <strong>Tip:</strong> If you're on a minimal install, you may also need
+        <code>apt install curl wget</code> first.
+      </div>
+
+      <!-- Warning box example -->
+      <div class="post-note warn">
+        ⚠️ <strong>Warning:</strong> Running <code>mysql_secure_installation</code>
+        will ask you to set a root password — don't skip this in production.
+      </div>
+
+      <!-- ─── STEP 2 ─── -->
+      <h2># Step 2 — Configure Apache</h2>
+
+      <p>Enable and start the Apache service:</p>
+
+      <span class="code-label">bash</span>
+      <pre><code>sudo systemctl enable apache2
+sudo systemctl start apache2
+sudo systemctl status apache2</code></pre>
+
+      <p>Then verify it's working by opening <code>http://localhost</code> in a browser.</p>
+
+      <hr>
+
+      <!-- ─── CONCLUSION ─── -->
+      <h2># Conclusion</h2>
+      <p>
+        Summary of what we did. What could go wrong and how to fix it.
+        What to do next.
+      </p>
+
+    </div><!-- /post-body -->
+  </div><!-- /post-wrap -->
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "Proxmox Home Lab",
+  "icon": "🖥️",
+  "image": "",
+  "desc": "A self-hosted environment using Proxmox LXC containers and a Cloudflare Tunnel.",
+  "tags": ["Proxmox", "LXC", "Cloudflare"],
+  "link": "index.html"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Cloudflare Tunnel",
+  "icon": "☁️",
+  "image": "",
+  "desc": "A secure bridge exposing the internal web server to the public internet with zero inbound ports.",
+  "tags": ["Cloudflare", "Security", "Zero Trust", "Networking"],
+  "link": "index.html"
+}

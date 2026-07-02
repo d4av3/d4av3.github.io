@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Server — Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/projects.css">
+</head>
+<body>
+
+  <a href="/#projects" class="return-button">RETURN</a>
+
+  <main class="page-wrap">
+
+    <div style="margin-bottom: 20px;">
+      <a href="../proxmox-homelab/index.html" style="color: var(--dim); font-family: var(--mono); font-size: 13px; text-decoration: none;">← Back to Proxmox Architecture</a>
+    </div>
+
+    <section class="terminal">
+      <div class="terminal-bar">
+        <span class="terminal-dot"></span>
+        <span class="terminal-dot"></span>
+        <span class="terminal-dot"></span>
+        <span class="terminal-title">root@web-server:~#</span>
+      </div>
+      <div class="terminal-body">
+        <p class="eyebrow">Project / Application</p>
+        <h1>Portfolio Web Server LXC</h1>
+        <p class="subtitle">An isolated web environment designed to do exactly one thing: serve this single-page application.</p>
+        
+        <div class="terminal-line"><span class="prompt">$</span> ls -la /var/www/html</div>
+        <div class="terminal-output">
+          drwxr-xr-x 2 www-data www-data 4096 index.html<br>
+          drwxr-xr-x 2 www-data www-data 4096 css/<br>
+          drwxr-xr-x 2 www-data www-data 4096 js/
+        </div>
+        <div class="terminal-line terminal-line--active"><span class="prompt">$</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">The Stack</p>
+      <h2>Lightweight & Focused</h2>
+      <p>This LXC contains standard web server daemon (like Nginx or Apache) and PHP. Because the portfolio is primarily a Vanilla JS Single Page Application (SPA) that acts as its own API via JSON files, the server overhead is practically zero.</p>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Isolation</p>
+      <h2>Completely Air-gapped from the Internet</h2>
+      <p>This container has no idea the outside world exists. It only listens for local traffic coming from the internal Proxmox virtual bridge. It accepts requests handed to it by the Cloudflare Tunnel LXC, processes them, and hands the static files back.</p>
+      <div class="tag-list">
+        <span class="tag">Nginx / Apache</span>
+        <span class="tag">PHP</span>
+        <span class="tag">Debian</span>
+        <span class="tag">Vanilla JS</span>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name":  "Tmp Project Name",
+  "icon":  "🛠️",
+  "image": "penguin.png",
+  "desc":  "One or two sentences describing what this project does and what tech it uses.",
+  "tags":  ["Bash", "Linux"],
+  "link":  "./index.html"
+}

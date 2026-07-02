@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proxmox Home Lab — Project</title>
+  <meta name="description" content="A self-hosted Proxmox virtualization stack using isolated LXC containers.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/projects.css">
+</head>
+<body>
+
+  <a href="/#projects" class="return-button">RETURN</a>
+
+  <main class="page-wrap">
+    <section class="terminal">
+      <div class="terminal-bar">
+        <span class="terminal-dot"></span>
+        <span class="terminal-dot"></span>
+        <span class="terminal-dot"></span>
+        <span class="terminal-title">root@proxmox:~#</span>
+      </div>
+      <div class="terminal-body">
+        <p class="eyebrow">Project / Infrastructure</p>
+        <h1>Proxmox Home Lab</h1>
+        <p class="subtitle">A self-hosted environment powered by Proxmox. The goal is to keep projects separated, secure, and accessible from the outside—without opening a single port.</p>
+
+        <div class="terminal-line"><span class="prompt">$</span> pct list</div>
+        <div class="terminal-output">
+          VMID&nbsp;&nbsp;&nbsp;Status&nbsp;&nbsp;&nbsp;Name<br>
+          101&nbsp;&nbsp;&nbsp;&nbsp;running&nbsp;&nbsp;web-server-lxc<br>
+          102&nbsp;&nbsp;&nbsp;&nbsp;running&nbsp;&nbsp;cloudflared-lxc<br>
+          103&nbsp;&nbsp;&nbsp;&nbsp;running&nbsp;&nbsp;ansible-lxc
+        </div>
+        <div class="terminal-line terminal-line--active"><span class="prompt">$</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">The Core</p>
+      <h2>One host, many isolated containers</h2>
+      <p>Instead of stacking everything onto a single operating system, a <strong>Proxmox</strong> server divides the workload into lightweight <strong>LXCs (Linux Containers)</strong>. This approach keeps the environment clean and modular.</p>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Architecture</p>
+      <h2>Separation of concerns</h2>
+      <p>A server should only do the job it was assigned to do. This environment is split into dedicated, single-purpose containers:</p>
+
+      <div class="diagram">
+        <span class="diagram-label">Proxmox Host</span>
+
+        <div class="lxc-row">
+          <div class="lxc-card">
+            <div class="lxc-card-head">
+              <h3>web-server-lxc</h3>
+              <span class="status-span status-span-success">ONLINE</span>
+            </div>
+            <p>Runs the actual web stack hosting this portfolio.</p>
+            <a href="../web-server/index.html" style="color: var(--accent); font-family: var(--mono); font-size: 12px; text-decoration: none; margin-top: auto; padding-top: 10px; display: inline-block;">View Project Details →</a>
+          </div>
+
+          <div class="lxc-card">
+            <div class="lxc-card-head">
+              <h3>cloudflared-lxc</h3>
+              <span class="status-span status-span-success">ONLINE</span>
+            </div>
+            <p>Runs a Cloudflare Tunnel daemon. Securely exposes the web server.</p>
+            <a href="../cloudflare-tunnel/index.html" style="color: var(--accent); font-family: var(--mono); font-size: 12px; text-decoration: none; margin-top: auto; padding-top: 10px; display: inline-block;">View Project Details →</a>
+          </div>
+
+          <div class="lxc-card">
+            <div class="lxc-card-head">
+              <h3>ansible-lxc</h3>
+              <span class="status-span status-span-success">ONLINE</span>
+            </div>
+            <p>Infrastructure as Code. Automates the deployment, updating, and configuration of all other LXCs on this host.</p>
+            <a href="../ansible/index.html" style="color: var(--accent); font-family: var(--mono); font-size: 12px; text-decoration: none; margin-top: auto; padding-top: 10px; display: inline-block;">View Project Details →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">What's Next</p>
+      <h2>Room to grow</h2>
+      <div class="callout">
+        <span class="icon">+</span>
+        <p>Because everything is containerized and automated via Ansible, adding a new service is incredibly fast. A new LXC can be cloned and configured in seconds.</p>
+      </div>
+      <div class="tag-list" style="margin-top: 24px;">
+        <span>Planned:</span>
+        <span class="tag">Zabbix</span>
+        <span class="tag">Gitea</span>
+        <span class="tag">Grafana</span>
+        <span class="tag">Vaultwarden</span>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

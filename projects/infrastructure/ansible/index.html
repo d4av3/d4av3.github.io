@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ansible Automation — Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/projects.css">
+</head>
+<body>
+
+  <a href="/#projects" class="return-button">RETURN</a>
+
+  <main class="page-wrap">
+    
+    <div style="margin-bottom: 20px;">
+      <a href="../proxmox-homelab/index.html" style="color: var(--dim); font-family: var(--mono); font-size: 13px; text-decoration: none;">← Back to Proxmox Architecture</a>
+    </div>
+
+    <section class="terminal">
+      <div class="terminal-bar">
+        <span class="terminal-dot"></span>
+        <span class="terminal-dot"></span>
+        <span class="terminal-dot"></span>
+        <span class="terminal-title">root@ansible:~#</span>
+      </div>
+      <div class="terminal-body">
+        <p class="eyebrow">Project / Automation</p>
+        <h1>Ansible Control Node</h1>
+        <p class="subtitle">An isolated container dedicated to managing, configuring, and updating the entire Proxmox infrastructure.</p>
+
+        <div class="terminal-line"><span class="prompt">$</span> ansible all -m ping</div>
+        <div class="terminal-output" style="color: var(--green);">
+          web-server-lxc | SUCCESS => {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;"ansible_facts": {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"discovered_interpreter_python": "/usr/bin/python3"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;},<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;"ping": "pong"<br>
+          }<br>
+          cloudflared-lxc | SUCCESS => {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;"ansible_facts": {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"discovered_interpreter_python": "/usr/bin/python3"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;},<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;"ping": "pong"<br>
+          }
+        </div>
+        <div class="terminal-line terminal-line--active"><span class="prompt">$</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">The Concept</p>
+      <h2>Infrastructure as Code (IaC)</h2>
+      <p>Managing a growing home lab manually quickly becomes a headache. Instead of logging into each container individually to install updates, tweak web server configurations, or restart services, I use this dedicated LXC as an Ansible control node.</p>
+      <p>Everything from base system configurations to specific software deployments is written as declarative YAML playbooks. This means my entire infrastructure is self-documenting and reproducible.</p>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Execution</p>
+      <h2>A Single Source of Truth</h2>
+      <p>By keeping Ansible isolated in its own container, I have a secure, centralized jumpbox. If I need to spin up a new service, I simply provision a raw LXC template in Proxmox, add its IP to the Ansible inventory, and run a playbook. The server configures itself in seconds without human error.</p>
+      <div class="tag-list">
+        <span class="tag">Ansible Playbooks</span>
+        <span class="tag">YAML</span>
+        <span class="tag">SSH Keys</span>
+        <span class="tag">Automation</span>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

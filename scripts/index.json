@@ -1,0 +1,121 @@
+[
+  {
+    "group": "python",
+    "icon": "🐍",
+    "tags": ["python"],
+    "items": [
+      {
+        "file": "eth-network-change.py",
+        "name": "eth-network-change.py",
+        "lang": "python",
+        "tags": ["networking", "tui"],
+        "desc": "Interactive TUI network manager using nmcli — connect/disconnect wired and wireless interfaces."
+      },
+      {
+        "file": "gif_maker.py",
+        "name": "gif_maker.py",
+        "lang": "python",
+        "tags": ["tools"],
+        "desc": "Generates an animated GIF using Pillow — moving ellipses and lines across 20 frames."
+      },
+      {
+        "group": "countdown timers",
+        "icon": "⏱️",
+        "tags": ["tui", "tools"],
+        "items": [
+          {
+            "file": "date-to-undefined.py",
+            "name": "date-to-undefined.py",
+            "lang": "python",
+            "tags": [],
+            "desc": "Live countdown to any time the user enters. Real-time curses display."
+          },
+          {
+            "file": "date_to_end_relative.py",
+            "name": "date_to_end_relative.py",
+            "lang": "python",
+            "tags": [],
+            "desc": "Countdown to a fixed target time (13:55). Rolls over to next day automatically."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "group": "bash",
+    "icon": "🐚",
+    "tags": ["bash"],
+    "items": [
+      {
+        "group": "backup",
+        "icon": "💾",
+        "tags": ["backup", "rsync"],
+        "items": [
+          {
+            "file": "backup.sh",
+            "name": "backup.sh",
+            "lang": "bash",
+            "tags": ["favorite"],
+            "desc": ""
+          },
+          {
+            "file": "sync-T7-disks.sh",
+            "name": "sync-T7-disks.sh",
+            "lang": "bash",
+            "tags": ["favorite"],
+            "desc": "Syncs two drives by UUID via rsync. Validates mounts, supports --vbox flag to skip VMs."
+          },
+          {
+            "file": "rsynca.sh",
+            "name": "rsynca.sh",
+            "lang": "bash",
+            "tags": ["mysql", "favorite"],
+            "desc": "MySQL dump + rsync pipeline. Dumps DB, symlinks latest, purges old backups, syncs to remote."
+          },
+          {
+            "file": "rsynca-array.sh",
+            "name": "rsynca-array.sh",
+            "lang": "bash",
+            "tags": ["mysql"],
+            "desc": "Multi-database backup rotation using an array. Keeps a fixed number of copies, deletes the oldest."
+          }
+        ]
+      },
+      {
+        "group": "sysadmin",
+        "icon": "🖥️",
+        "tags": ["sysadmin"],
+        "items": [
+          {
+            "file": "wine.sh",
+            "name": "wine.sh",
+            "lang": "bash",
+            "tags": ["gaming"],
+            "desc": "Full Wine + Proton setup for Debian/Ubuntu. WineHQ, Vulkan, DXVK, Winetricks, Gamemode."
+          },
+          {
+            "file": "wine-manjaro.sh",
+            "name": "wine-manjaro.sh",
+            "lang": "bash",
+            "tags": ["gaming"],
+            "desc": "Wine + Proton-GE for Manjaro/Arch via pacman and yay. Includes MangoHud and VKD3D."
+          },
+          {
+            "file": "xamp-start.sh",
+            "name": "xamp-start.sh",
+            "lang": "bash",
+            "tags": ["web"],
+            "desc": "Kills Apache and anything on port 80, then restarts XAMPP cleanly."
+          },
+          {
+            "file": "SPACE_CHANGE.sh",
+            "name": "SPACE_CHANGE.sh",
+            "lang": "bash",
+            "tags": ["tools"],
+            "desc": "Zenity GUI dialog — replaces spaces with underscores in any text you enter."
+          }
+        ]
+      }
+    ]
+  }
+]

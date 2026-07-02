@@ -1,0 +1,8 @@
+{
+  "name": "Ansible Automation",
+  "icon": "⚙️",
+  "image": "",
+  "desc": "An isolated control node using Infrastructure as Code to automate and manage all Proxmox LXC deployments.",
+  "tags": ["Ansible", "Automation", "IaC", "Proxmox"],
+  "link": "index.html"
+}
