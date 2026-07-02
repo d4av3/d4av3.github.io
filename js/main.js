@@ -448,19 +448,18 @@ function escapeHtml(str = '') {
 // ─────────────────────────────────────
 // LANGUAGE TOGGLE LOGIC (Google Translate)
 // ─────────────────────────────────────
-
-// ⬇️ CONFIGURACIÓN FÁCIL: Cambia esto a 'en' o 'es' para cambiar el idioma por defecto
+// ⬇️ EASY CONFIGURATION: Change this to 'en' or 'es' to change the default language
 const DEFAULT_LANG = 'es'; 
 // ⬆️
 
-// 1. Leer el idioma guardado del usuario, o usar el de por defecto
+// 1. Read the user's saved language, or use the default one
 let currentLang = localStorage.getItem('user_lang');
 if (!currentLang) {
     currentLang = DEFAULT_LANG;
     localStorage.setItem('user_lang', currentLang);
 }
 
-// Funciones auxiliares para manejar la memoria de Google Translate
+// Helper functions to handle Google Translate's memory
 function setGoogleCookie(langTarget) {
     document.cookie = `googtrans=/en/${langTarget}; path=/;`;
     document.cookie = `googtrans=/en/${langTarget}; path=/; domain=${window.location.hostname};`;
@@ -472,21 +471,21 @@ function clearGoogleCookies() {
     document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." + window.location.hostname + ";";
 }
 
-// 2. Comprobar si Google Translate ya está activo en las cookies
+// 2. Check if Google Translate is already active in the cookies
 const hasGoogTransCookie = document.cookie.includes('googtrans=/en/es');
 
-// 3. Forzar el idioma correcto si no coincide con nuestra configuración
+// 3. Force the correct language if it doesn't match our configuration
 if (currentLang === 'es' && !hasGoogTransCookie) {
-    // Es la primera vez y el defecto es español: forzar traducción y recargar
+    // It's the first time and the default is Spanish: force translation and reload
     setGoogleCookie('es');
     window.location.reload(); 
 } else if (currentLang === 'en' && document.cookie.includes('googtrans')) {
-    // El usuario quiere inglés nativo, limpiar rastro de Google y recargar
+    // The user wants native English, clear Google's trace and reload
     clearGoogleCookies();
     window.location.reload(); 
 }
 
-// 4. Actualizar el texto del botón cuando carga la interfaz
+// 4. Update the button text when the interface loads
 window.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.getElementById('lang-toggle');
     if (toggleBtn) {
@@ -494,18 +493,18 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 5. Función que se ejecuta al hacer clic en el botón
+// 5. Function that runs when the button is clicked
 function toggleLanguage() {
     if (currentLang === 'en') {
-        // Cambiar a Español
+        // Switch to Spanish
         localStorage.setItem('user_lang', 'es');
         setGoogleCookie('es');
     } else {
-        // Cambiar a Inglés
+        // Switch to English
         localStorage.setItem('user_lang', 'en');
         clearGoogleCookies();
     }
-    // Recargar para aplicar los cambios sin romper el diseño
+    // Reload to apply changes without breaking the design
     window.location.reload();
 }
 window.toggleLanguage = toggleLanguage;
