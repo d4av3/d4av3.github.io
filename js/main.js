@@ -449,7 +449,7 @@ function escapeHtml(str = '') {
 // LANGUAGE TOGGLE LOGIC (Google Translate)
 // ─────────────────────────────────────
 // ⬇️ EASY CONFIGURATION: Change this to 'en' or 'es' to change the default language
-const DEFAULT_LANG = 'es'; 
+const DEFAULT_LANG = 'en'; 
 // ⬆️
 
 // 1. Read the user's saved language, or use the default one
