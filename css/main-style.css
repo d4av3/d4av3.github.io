@@ -747,3 +747,38 @@ body {
 @media (max-width: 480px) {
   .projects-subgrid { grid-template-columns: 1fr; }
 }
+
+/* ────────────────────────────────
+   INVISIBLE GOOGLE TRANSLATE STYLES (AGGRESSIVE)
+   ──────────────────────────────── */
+
+/* 1. Target dynamically injected top bars and iframes directly in the body */
+body > .skiptranslate,
+iframe.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.skiptranslate {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+}
+
+/* 2. Reset ANY spacing or shifting Google tries to force on the page */
+html, 
+body {
+  top: 0px !important;
+  margin-top: 0px !important;
+  padding-top: 0px !important;
+  position: static !important;
+}
+
+/* 3. Hide the pop-up tooltips and text highlighting */
+#goog-gt-tt, 
+.goog-te-balloon-frame {
+  display: none !important;
+}
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}

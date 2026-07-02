@@ -12,22 +12,24 @@
 
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <div class="logo"><span class="lb">[</span>D4av3<span class="lb">]</span></div>
-      <p class="tagline">SysAdmin · 2nd Year</p>
-      <div class="status-badge"><span class="sdot"></span>Open to work</div>
+      <div class="logo notranslate"><span class="lb">[</span>D4av3<span class="lb">]</span></div>
+      <p class="tagline notranslate">SysAdmin · Network engineer</p>
+      <div class="status-badge notranslate"><span class="sdot"></span>Open to work</div>
+      
+      <button id="lang-toggle" class="lang-btn" onclick="toggleLanguage()">🇪🇸 Switch to Spanish</button>
     </div>
     <nav class="nav">
-      <a class="nav-link active" data-section="home">   <span class="ni">~</span>Home</a>
+      <a class="nav-link active notranslate" data-section="home">   <span class="ni">~</span>Home</a>
       <a class="nav-link"        data-section="about">  <span class="ni">$</span>About</a>
-      <a class="nav-link"        data-section="skills"> <span class="ni">#</span>Skills</a>
-      <a class="nav-link"        data-section="scripts"><span class="ni">&gt;</span>Scripts</a>
+      <a class="nav-link notranslate"        data-section="skills"> <span class="ni">#</span>Skills</a>
+      <a class="nav-link notranslate"        data-section="scripts"><span class="ni">&gt;</span>Scripts</a>
       <a class="nav-link"        data-section="projects"><span class="ni">@</span>Projects</a>
       <a class="nav-link"        data-section="blog">   <span class="ni">*</span>Blog</a>
       <a class="nav-link"        data-section="contact"><span class="ni">!</span>Contact</a>
     </nav>
     <div class="sidebar-footer">
       <a href="https://github.com/d4av3" target="_blank" class="social-link">GitHub</a>
-      <a class="social-link nav-link" data-section="contact" style="cursor:pointer">Email</a>
+      <a class="social-link nav-link notranslate" data-section="contact" style="cursor:pointer">Email</a>
     </div>
   </aside>
 
@@ -37,7 +39,6 @@
 
   <main class="main-content">
 
-    <!-- HOME -->
     <section id="home" class="section active">
       <div class="hero">
         <div class="hero-text">
@@ -63,11 +64,11 @@
             <div class="term-panel" data-index="0">
               <div class="term-bar">
                 <div class="term-dots"><span class="td red"></span><span class="td yel"></span><span class="td grn"></span></div>
-                <span class="term-title">whoami</span>
+                <span class="term-title notranslate">whoami</span>
                 <span class="term-chevron">▾</span>
               </div>
               <div class="term-body">
-                <div class="term-prompt"><span class="tp">david@SysAdmin:~$</span> <span class="tc">whoami</span></div>
+                <div class="term-prompt"><span class="tp">david@SysAdmin:~$</span> <span class="tc notranslate">whoami</span></div>
                 <div class="term-output" id="tout-0">
                   <div class="to"><span class="tk">name    </span><span class="tv">David Badal Beltrán</span></div>
                   <div class="to"><span class="tk">role    </span><span class="tv">SysAdmin · Network engineer</span></div>
@@ -80,11 +81,11 @@
             <div class="term-panel" data-index="1">
               <div class="term-bar">
                 <div class="term-dots"><span class="td red"></span><span class="td yel"></span><span class="td grn"></span></div>
-                <span class="term-title">cat skills.txt</span>
+                <span class="term-title notranslate">cat skills.txt</span>
                 <span class="term-chevron">▾</span>
               </div>
               <div class="term-body">
-                <div class="term-prompt"><span class="tp">david@SysAdmin:~$</span> <span class="tc">cat skills.txt</span></div>
+                <div class="term-prompt"><span class="tp">david@SysAdmin:~$</span> <span class="tc notranslate">cat skills.txt</span></div>
                 <div class="term-output" id="tout-1">
                   <div class="to"><span class="tk2">[sys] </span>Linux · Windows Server · Active Directory</div>
                   <div class="to"><span class="tk2">[net] </span>TCP/IP · VLANs · DNS · DHCP · Wireshark</div>
@@ -98,11 +99,11 @@
             <div class="term-panel" data-index="2">
               <div class="term-bar">
                 <div class="term-dots"><span class="td red"></span><span class="td yel"></span><span class="td grn"></span></div>
-                <span class="term-title">uptime --education</span>
+                <span class="term-title notranslate">uptime --education</span>
                 <span class="term-chevron">▾</span>
               </div>
               <div class="term-body">
-                <div class="term-prompt"><span class="tp">david@SysAdmin:~$</span> <span class="tc">uptime --education</span></div>
+                <div class="term-prompt"><span class="tp">david@SysAdmin:~$</span> <span class="tc notranslate">uptime --education</span></div>
                 <div class="term-output" id="tout-2">
                   <div class="to"><span class="tg">●</span> ASIR 2nd Year <span class="td2">2024 → 2026</span></div>
                   <div class="to tindent">OS admin, networking, scripting, DBs, security</div>
@@ -117,16 +118,16 @@
             <div class="term-panel" data-index="3">
               <div class="term-bar">
                 <div class="term-dots"><span class="td red"></span><span class="td yel"></span><span class="td grn"></span></div>
-                <span class="term-title">echo $STATUS</span>
+                <span class="term-title notranslate">echo $STATUS</span>
                 <span class="term-chevron">▾</span>
               </div>
               <div class="term-body">
-                <div class="term-prompt"><span class="tp">david@SysAdmin:~$</span> <span class="tc">echo $STATUS</span></div>
+                <div class="term-prompt"><span class="tp">david@SysAdmin:~$</span> <span class="tc notranslate">echo $STATUS</span></div>
                 <div class="term-output" id="tout-3">
-                  <div class="to tg">🟢 Open to internships &amp; junior positions</div>
-                  <div class="to"><span class="tk">availability</span><span class="tv">part-time / FCT practices</span></div>
-                  <div class="to"><span class="tk">preference  </span><span class="tv">sysadmin · networks · devops</span></div>
-                  <div class="to"><span class="tk">cv          </span><span class="tv"><a href="cv/cv-david-badal.pdf" download>download PDF ↓</a></span></div>
+                  <div class="to tg">🟢 Open to Work &amp; junior positions</div>
+                  <div class="to"><span class="tk">availability</span><span class="tv">  part-time / FCT practices</span></div>
+                  <div class="to"><span class="tk">preference  </span><span class="tv"> sysadmin · networks · devops</span></div>
+                  <div class="to"><span class="tk">cv          |</span><span class="tv"><a style="background-color: #58a6ff; color: #000;" href="cv/cv-david-badal.pdf" download>download PDF ↓</a></span></div>
                 </div>
               </div>
             </div>
@@ -136,10 +137,9 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about" class="section">
       <div class="section-header">
-        <h2 class="section-title"><span class="accent">$</span> cat about.txt</h2>
+        <h2 class="section-title notranslate"><span class="accent">$</span> cat about.txt</h2>
       </div>
       <div class="about-grid">
         <div class="about-card">
@@ -181,10 +181,9 @@
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section id="skills" class="section">
       <div class="section-header">
-        <h2 class="section-title"><span class="accent">#</span> skills --list</h2>
+        <h2 class="section-title notranslate"><span class="accent">#</span> skills --list</h2>
         <p class="section-sub">Click a coding language tag to jump to Scripts filtered by that language.</p>
       </div>
       <div class="skills-grid">
@@ -229,10 +228,9 @@
       </div>
     </section>
 
-    <!-- SCRIPTS -->
     <section id="scripts" class="section">
       <div class="section-header">
-        <h2 class="section-title"><span class="accent">&gt;</span> ls ./scripts/</h2>
+        <h2 class="section-title notranslate"><span class="accent">&gt;</span> ls ./scripts/</h2>
         <p class="section-sub">Click a card to expand and read the code.</p>
       </div>
       <div class="filter-bar">
@@ -250,10 +248,9 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section id="projects" class="section">
       <div class="section-header">
-        <h2 class="section-title"><span class="accent">@</span> ls ./projects/</h2>
+        <h2 class="section-title notranslate"><span class="accent">@</span> ls ./projects/</h2>
         <p class="section-sub">Mini-projects and experiments.</p>
       </div>
       <div class="projects-grid" id="projects-grid">
@@ -261,10 +258,9 @@
       </div>
     </section>
 
-    <!-- BLOG -->
     <section id="blog" class="section">
       <div class="section-header">
-        <h2 class="section-title"><span class="accent">*</span> ls ./blog/</h2>
+        <h2 class="section-title notranslate"><span class="accent">*</span> ls ./blog/</h2>
         <p class="section-sub">Notes, guides and things I learn — mostly for other SysAdmins.</p>
       </div>
       <div class="blog-grid" id="blog-grid">
@@ -272,17 +268,16 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="section">
       <div class="section-header">
-        <h2 class="section-title"><span class="accent">!</span> contact --help</h2>
+        <h2 class="section-title notranslate"><span class="accent">!</span> contact --help</h2>
       </div>
       <div class="contact-grid">
         <div class="contact-info">
           <h3>Let's talk</h3>
           <p>Looking for internships, FCT practices, or part-time sysadmin/junior work. Don't hesitate to reach out.</p>
           <ul class="contact-list">
-            <li><span class="cl">Email</span><a href="mailto:d4av3@d4av3.com">d4av3@d4av3.com</a></li>
+            <li><span class="cl notranslate">Email</span><a href="mailto:d4av3@d4av3.com">d4av3@d4av3.com</a></li>
             <li><span class="cl">GitHub</span><a href="https://github.com/d4av3" target="_blank">github.com/d4av3</a></li>
             <li><span class="cl">Location</span><span>Spain 🇪🇸</span></li>
           </ul>
@@ -295,7 +290,7 @@
               <input type="text" id="c-name" placeholder="Your name" required>
             </div>
             <div class="form-group">
-              <label for="c-email">Email</label>
+              <label for="c-email notranslate">Email</label>
               <input type="email" id="c-email" placeholder="you@email.com" required>
             </div>
             <div class="form-group">
@@ -310,6 +305,19 @@
     </section>
 
   </main>
+
+  <div id="google_translate_element" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;"></div>
+  
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en', 
+        includedLanguages: 'en,es', 
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <script src="js/main.js"></script>
 </body>

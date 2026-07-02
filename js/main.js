@@ -444,3 +444,68 @@ function escapeHtml(str = '') {
     .replace(/"/g,'&quot;')
     .replace(/'/g,'&#039;');
 }
+
+// ─────────────────────────────────────
+// LANGUAGE TOGGLE LOGIC (Google Translate)
+// ─────────────────────────────────────
+
+// ⬇️ CONFIGURACIÓN FÁCIL: Cambia esto a 'en' o 'es' para cambiar el idioma por defecto
+const DEFAULT_LANG = 'es'; 
+// ⬆️
+
+// 1. Leer el idioma guardado del usuario, o usar el de por defecto
+let currentLang = localStorage.getItem('user_lang');
+if (!currentLang) {
+    currentLang = DEFAULT_LANG;
+    localStorage.setItem('user_lang', currentLang);
+}
+
+// Funciones auxiliares para manejar la memoria de Google Translate
+function setGoogleCookie(langTarget) {
+    document.cookie = `googtrans=/en/${langTarget}; path=/;`;
+    document.cookie = `googtrans=/en/${langTarget}; path=/; domain=${window.location.hostname};`;
+}
+
+function clearGoogleCookies() {
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname + ";";
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." + window.location.hostname + ";";
+}
+
+// 2. Comprobar si Google Translate ya está activo en las cookies
+const hasGoogTransCookie = document.cookie.includes('googtrans=/en/es');
+
+// 3. Forzar el idioma correcto si no coincide con nuestra configuración
+if (currentLang === 'es' && !hasGoogTransCookie) {
+    // Es la primera vez y el defecto es español: forzar traducción y recargar
+    setGoogleCookie('es');
+    window.location.reload(); 
+} else if (currentLang === 'en' && document.cookie.includes('googtrans')) {
+    // El usuario quiere inglés nativo, limpiar rastro de Google y recargar
+    clearGoogleCookies();
+    window.location.reload(); 
+}
+
+// 4. Actualizar el texto del botón cuando carga la interfaz
+window.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('lang-toggle');
+    if (toggleBtn) {
+        toggleBtn.innerText = currentLang === 'es' ? '🇬🇧 Switch to English' : '🇪🇸 Cambiar a Español';
+    }
+});
+
+// 5. Función que se ejecuta al hacer clic en el botón
+function toggleLanguage() {
+    if (currentLang === 'en') {
+        // Cambiar a Español
+        localStorage.setItem('user_lang', 'es');
+        setGoogleCookie('es');
+    } else {
+        // Cambiar a Inglés
+        localStorage.setItem('user_lang', 'en');
+        clearGoogleCookies();
+    }
+    // Recargar para aplicar los cambios sin romper el diseño
+    window.location.reload();
+}
+window.toggleLanguage = toggleLanguage;
