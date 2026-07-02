@@ -570,7 +570,7 @@ body {
 .projects-grid { display: flex; flex-direction: column; gap: 28px; }
 
 /* Group section */
-.project-group {}
+.project-group
 .project-group-header { margin-bottom: 12px; }
 .project-group-label {
   font-family: var(--mono);
